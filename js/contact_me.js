@@ -15,6 +15,7 @@ $(function() {
             var email = $("input#email").val();
             var phone = $("input#phone").val();
             var message = $("textarea#message").val();
+            var $submit = $('input:submit', $form);
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
@@ -27,6 +28,10 @@ $(function() {
                 data: { name: name, email: email, message: message },
                 cache: false,
                 dataType: "json",
+                beforeSend: function() {
+			               //$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
+			                  $submit.attr('disabled', true).val('Sending message…');
+                      },
                 success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
