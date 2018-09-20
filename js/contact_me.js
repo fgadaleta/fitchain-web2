@@ -1,3 +1,5 @@
+
+
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
@@ -5,6 +7,7 @@ $(function() {
         submitError: function($form, event, errors) {
             // additional error messages or events
         },
+
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
@@ -17,16 +20,13 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "//formspree.io/hello@fitchain.io",
                 type: "POST",
-                data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
-                },
+                data: { name: name, email: email, message: message },
                 cache: false,
+                dataType: "json",
                 success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
@@ -36,7 +36,6 @@ $(function() {
                         .append("<strong>Your message has been sent. </strong>");
                     $('#success > .alert-success')
                         .append('</div>');
-
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
@@ -51,6 +50,7 @@ $(function() {
                     $('#contactForm').trigger("reset");
                 },
             })
+
         },
         filter: function() {
             return $(this).is(":visible");
@@ -62,6 +62,7 @@ $(function() {
         $(this).tab("show");
     });
 });
+
 
 
 /*When clicking on Full hide fail/success boxes */
