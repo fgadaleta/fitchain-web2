@@ -23,7 +23,7 @@ $(function() {
 
             $.ajax({
                 url: "//formspree.io/hello@fitchain.io",
-                type: "POST",
+                method: "POST",
                 data: { name: name, email: email, message: message },
                 cache: false,
                 dataType: "json",
