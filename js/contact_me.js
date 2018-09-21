@@ -23,7 +23,7 @@ $(function() {
             $.ajax({
                 url: "http://todiscoart.com/sendmsg.php",
                 method: "POST",
-                data: { name: name, email: email, message: message },
+                data: { name: name, email: email, message: message, phone: phone },
                 cache: false,
                 dataType: "json",
                 success: function() {
