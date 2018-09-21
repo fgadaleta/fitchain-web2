@@ -1,13 +1,11 @@
 
 
 $(function() {
-
     $("input,textarea").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function($form, event, errors) {
             // additional error messages or events
         },
-
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
@@ -21,17 +19,13 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
-
+            
             $.ajax({
-                url: "//formspree.io/hello@fitchain.io",
+                url: "http://todiscoart.com/sendmsg.php",
                 method: "POST",
                 data: { name: name, email: email, message: message },
                 cache: false,
                 dataType: "json",
-                beforeSend: function() {
-			               //$contactForm.append('<div class="alert alert--loading">Sending message…</div>');
-			                  $submit.attr('disabled', true).val('Sending message…');
-                      },
                 success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
