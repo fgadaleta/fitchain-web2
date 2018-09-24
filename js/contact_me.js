@@ -21,7 +21,10 @@ $(function() {
             }
 
             $.ajax({
-                url: "http://todiscoart.com/sendmsg.php",
+                url: "https://qtfbx2ak1c.execute-api.us-east-1.amazonaws.com/default/emailService",
+                beforeSend: function(request) {
+                    request.setRequestHeader("x-api-key", '5TdGdfpTS09C3ghLLoedBaf2abk3BrJf1QK8DpYA');
+                  },
                 method: "POST",
                 data: { name: name, email: email, message: message, phone: phone },
                 cache: false,
