@@ -21,15 +21,15 @@ $(function() {
             }
 
             $.ajax({
-                url: "https://qtfbx2ak1c.execute-api.us-east-1.amazonaws.com/default/emailService",
-                beforeSend: function(request) {
-                    request.setRequestHeader("x-api-key", '5TdGdfpTS09C3ghLLoedBaf2abk3BrJf1QK8DpYA');
-                  },
+                url: "https://7pc847fe00.execute-api.us-east-1.amazonaws.com/default/emailService",
+                //beforeSend: function(request) {
+                //    request.setRequestHeader("x-api-key", '5TdGdfpTS09C3ghLLoedBaf2abk3BrJf1QK8DpYA');
+                //  },
                 method: "POST",
                 data: { name: name, email: email, message: message, phone: phone },
                 cache: false,
-                dataType: "json",
-                success: function() {
+                dataType: "text",
+                error: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -41,7 +41,8 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
-                error: function() {
+                success: function() {
+
                     // Fail message
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
