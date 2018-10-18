@@ -202,6 +202,24 @@ fieldset[disabled] .btn-primary.active {
   font-size: 1.6em;
 }
 
+.youtube_frame {
+	margin: 0 auto;
+	width: 900px;
+	height: 506px;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 500px)
+{
+	.youtube_frame {
+		margin: 0 auto;
+		width: 450px;
+		height: 253px;
+	}
+
+}
+
 
 .button{
     padding: 10px 30px;
